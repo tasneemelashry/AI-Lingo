@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="104" height="104" viewBox="0 0 104 104" fill="none">
-  <!-- PLACEHOLDER: redrawn from Figma screenshots. Replace with the exported mascot SVG. -->
-  <path d="M18 14h68a14 14 0 0 1 14 14v38a14 14 0 0 1-14 14H44L26 98V80h-8A14 14 0 0 1 4 66V28a14 14 0 0 1 14-14Z" fill="#6254E8"/>
-  <circle cx="34" cy="50" r="7" fill="#FF9F5A" fill-opacity="0.75"/>
-  <circle cx="70" cy="50" r="7" fill="#FF9F5A" fill-opacity="0.75"/>
-  <path d="M36 36q4-6 8 0M60 36q4-6 8 0" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-  <path d="M38 52q14 12 28 0z" fill="#FFC857"/>
-</svg>

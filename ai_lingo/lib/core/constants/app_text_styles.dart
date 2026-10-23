@@ -3,7 +3,7 @@ import 'app_colors.dart';
 
 class AppTextStyles {
   // Sora => headings
-  TextStyle splashTitle = TextStyle(
+  static const TextStyle splashTitle = TextStyle(
     fontFamily: 'sora',
     fontWeight: FontWeight.w700,
     fontSize: 40,
@@ -177,5 +177,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w500,
     fontSize: 15,
     color: AppColors.textSecondary,
+  );
+  static const TextStyle smallSubtitle = TextStyle(
+    fontFamily: 'PlusJakartaSans',
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+    color: AppColors.white,
   );
 }

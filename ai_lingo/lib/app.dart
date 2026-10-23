@@ -1,3 +1,4 @@
+import 'package:ai_lingo/features/onboarding/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class AILingoApp extends StatelessWidget{
@@ -5,11 +6,7 @@ class AILingoApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Welcome', style: TextStyle(fontWeight: .w700, fontSize: 26),),
-      ),
-    );
+    return SplashScreen();
   }
 
 }

@@ -76,10 +76,11 @@ flutter:
   fonts:
     - family: Sora
       fonts:
-        - asset: fonts/Sora-Variable.ttf
+        - asset: assets/fonts/Sora-Variable.ttf
+
     - family: PlusJakartaSans
       fonts:
-        - asset: fonts/PlusJakartaSans-Variable.ttf
+        - asset: assets/fonts/PlusJakartaSans-Variable.ttf
  
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
