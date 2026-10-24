@@ -73,6 +73,12 @@ class AppTextStyles {
     fontSize: 17,
     color: AppColors.white,
   );
+  static const TextStyle leaveButton = TextStyle(
+    fontFamily: 'PlusJakartaSans',
+    fontWeight: FontWeight.w800,
+    fontSize: 17,
+    color: Colors.red,
+  );
   static const TextStyle buttonMedium = TextStyle(
     fontFamily: 'PlusJakartaSans',
     fontWeight: FontWeight.w800,

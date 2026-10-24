@@ -1,5 +1,6 @@
 import 'package:ai_lingo/core/constants/app_colors.dart';
 import 'package:ai_lingo/core/constants/app_text_styles.dart';
+import 'package:ai_lingo/features/onboarding/widgets/circle_container.dart';
 import 'package:flutter/material.dart';
 import 'package:ai_lingo/core/constants/app_assets.dart';
 
@@ -12,29 +13,11 @@ class SplashScreen extends StatelessWidget {
       backgroundColor: AppColors.primary,
       body: Stack(
         children: [
-          Positioned(
-            top: -80,
-            left: -80,
-            child: Container(
-              width: 250,
-              height: 250,
-              decoration: BoxDecoration(
-                shape: .circle,
-                color: AppColors.primarySoft,
-              ),
-            ),
-          ),
+          Positioned(top: -80, left: -80, child: CircleContainer(size: 250)),
           Positioned(
             bottom: -70,
             right: -70,
-            child: Container(
-              width: 250,
-              height: 250,
-              decoration: BoxDecoration(
-                shape: .circle,
-                color: AppColors.primarySoft,
-              ),
-            ),
+            child: CircleContainer(size: 250),
           ),
           Center(
             child: Column(

@@ -1,6 +1,8 @@
 class AppAssets {
-  //App Logo
+  //App images
   static const String splashLogo = 'assets/images/splash_logo.png';
+  static const String appLogo = 'assets/images/app_logo.png';
+  static const String welcomeImage = 'assets/images/chat_preview.svg';
 
   // Bottom navigation icons
   static const String homeIcon = 'assets/icons/home.svg';

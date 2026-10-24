@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="343" height="244" viewBox="0 0 343 244">
+  <defs>
+    <clipPath id="card"><rect width="343" height="244" rx="24"/></clipPath>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadowS" x="-20%" y="-30%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+  <g clip-path="url(#card)">
+    <rect width="343" height="244" fill="#EDEBFF"/>
+    <circle cx="35" cy="35" r="75" fill="#5B55E6" fill-opacity="0.10"/>
+    <circle cx="325" cy="235" r="75" fill="#5B55E6" fill-opacity="0.10"/>
+
+    <!-- mascot -->
+    <g transform="translate(40,60)">
+      <rect x="0" y="0" width="100" height="78" rx="24" fill="#5B55E6"/>
+      <path d="M15 70 L5 100 L40 76 Z" fill="#5B55E6" stroke="#5B55E6" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="32" cy="28" r="6" fill="#fff"/>
+      <circle cx="68" cy="28" r="6" fill="#fff"/>
+      <circle cx="15" cy="42" r="8" fill="#E59A8C"/>
+      <circle cx="85" cy="42" r="8" fill="#E59A8C"/>
+      <path d="M30 45 Q50 62 70 45" fill="none" stroke="#FFC233" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <!-- question bubble -->
+    <g filter="url(#shadow)">
+      <rect x="160" y="24" width="167" height="56" rx="18" fill="#fff"/>
+    </g>
+    <g font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#1F1F2E">
+      <text x="176" y="48">What would you like</text>
+      <text x="176" y="67">to drink?</text>
+    </g>
+
+    <!-- recommend chip -->
+    <g filter="url(#shadowS)">
+      <rect x="190" y="108" width="90" height="28" rx="14" fill="#D5F5EC"/>
+    </g>
+    <text x="235" y="127" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B8F6B">recommend</text>
+
+    <!-- available chip -->
+    <g filter="url(#shadowS)">
+      <rect x="24" y="188" width="74" height="28" rx="14" fill="#FFE9D2"/>
+    </g>
+    <text x="61" y="207" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#B8620E">available</text>
+
+    <!-- reply bubble -->
+    <g filter="url(#shadow)">
+      <rect x="140" y="176" width="187" height="42" rx="18" fill="#5B55E6"/>
+    </g>
+    <text x="233.5" y="202" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#fff">I'd like a coffee, please.</text>
+  </g>
+</svg>
