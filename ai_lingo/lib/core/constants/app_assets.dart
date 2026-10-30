@@ -13,7 +13,7 @@ class AppAssets {
 
   // Actions
   static const String arrowRightIcon = 'assets/icons/arrow_right.svg';
-  static const String arrowBackIcon = 'assets/icons/arrow_back.svg';
+  static const String arrowBackIcon = 'assets/icons/arrow_back.png';
   static const String checkIcon = 'assets/icons/check.svg';
   static const String closeIcon = 'assets/icons/close.svg';
   static const String downloadIcon = 'assets/icons/download.svg';
