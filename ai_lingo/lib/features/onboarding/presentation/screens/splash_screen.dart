@@ -1,6 +1,5 @@
 import 'package:ai_lingo/core/constants/app_colors.dart';
-import 'package:ai_lingo/core/constants/app_text_styles.dart';
-import 'package:ai_lingo/features/onboarding/widgets/circle_container.dart';
+import 'package:ai_lingo/features/onboarding/presentation/widgets/circle_container.dart';
 import 'package:flutter/material.dart';
 import 'package:ai_lingo/core/constants/app_assets.dart';
 
@@ -36,10 +35,24 @@ class SplashScreen extends StatelessWidget {
                     height: 104,
                   ),
                 ),
-                Text('AI-Lingo', style: AppTextStyles.splashTitle),
+                Text(
+                  'AI-Lingo',
+                  style: TextStyle(
+                    fontFamily: AppAssets.sora,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 40,
+                    letterSpacing: -1,
+                    color: AppColors.white,
+                  ),
+                ),
                 Text(
                   'Chat your way to better English.',
-                  style: AppTextStyles.smallSubtitle,
+                  style: TextStyle(
+                    fontFamily: AppAssets.plus,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: AppColors.white,
+                  ),
                 ),
               ],
             ),

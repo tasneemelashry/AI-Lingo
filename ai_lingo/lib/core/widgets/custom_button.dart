@@ -9,7 +9,8 @@ class CustomButton extends StatelessWidget {
     required this.buttonText,
     this.buttonIcon,
     required this.buttonColor,
-    required this.textStyle, required this.buttonWidth,
+    required this.textStyle,
+    required this.buttonWidth,
   });
 
   final void Function() onPressed;
@@ -29,7 +30,7 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadiusGeometry.circular(15),
         ),
         minimumSize: .fromHeight(50),
-        maximumSize: .fromWidth(buttonWidth)
+        maximumSize: .fromWidth(buttonWidth),
       ),
       child: Row(
         spacing: 10,

@@ -1,4 +1,4 @@
-import 'package:ai_lingo/features/onboarding/screens/welcome/welcome_screen.dart';
+import 'package:ai_lingo/features/onboarding/presentation/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 class AILingoApp extends StatelessWidget {

@@ -26,4 +26,8 @@ class AppAssets {
   static const String eyeIcon = 'assets/icons/eye.svg';
   static const String eyeOffIcon = 'assets/icons/eye_off.svg';
   static const String noWifiIcon = 'assets/icons/no_wifi.svg';
+
+  // Font family
+  static const String plus = 'PlusJakartaSans';
+  static const String sora = 'sora';
 }
