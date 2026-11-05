@@ -3,7 +3,10 @@ import 'package:ai_lingo/core/constants/app_colors.dart';
 import 'package:ai_lingo/core/constants/app_text_styles.dart';
 import 'package:ai_lingo/core/widgets/custom_button.dart';
 import 'package:ai_lingo/core/widgets/custom_text_field.dart';
+import 'package:ai_lingo/features/auth/presentation/screens/forgot_password_screen.dart';
+import 'package:ai_lingo/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,25 +14,27 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.neutralWhite,
-      appBar: AppBar(
-        backgroundColor: AppColors.neutralWhite,
-        leading: Icon(Icons.arrow_back_ios_new),
-      ),
+      // appBar: AppBar(
+      //   leading: InkWell(
+      //     onTap: () => Navigator.of(context).pop(),
+      //     child: Icon(Icons.arrow_back_ios_new),
+      //   ),
+      // ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+          padding: EdgeInsets.only(left: 12.w, right: 12.w, top: 100.h),
           child: Column(
-            spacing: 10,
+            spacing: 10.h,
             crossAxisAlignment: .stretch,
+            mainAxisAlignment: .center,
             children: [
               Image.asset(
                 AppAssets.appLogo,
-                width: 64,
-                height: 64,
+                width: 64.w,
+                height: 64.h,
                 alignment: .topStart,
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 5.h),
               Text(
                 'WELCOME BACK',
                 style: AppTextStyles(
@@ -38,7 +43,7 @@ class LoginScreen extends StatelessWidget {
               ),
               Text(
                 'Pick up where you left off',
-                style: AppTextStyles().headingScreenTitle28,
+                style: AppTextStyles().headingScreenTitle26,
               ),
               Text(
                 'Sign in to see your words and lessons.',
@@ -46,36 +51,43 @@ class LoginScreen extends StatelessWidget {
                   textColor: AppColors.textSecondary,
                 ).bodyDefault15,
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Text('Email', style: AppTextStyles().formFieldLabel14),
               CustomTextField(),
-              SizedBox(height: 5),
+              SizedBox(height: 5.h),
               Text('Password', style: AppTextStyles().formFieldLabel14),
               CustomTextField(suffixIcon: AppAssets.eyeIcon),
-              Text(
-                'Forgot password?',
-                style: AppTextStyles(
-                  textColor: AppColors.brandPrimaryDark,
-                ).formFieldLabel14,
-                textAlign: .end,
+              InkWell(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ForgotPasswordScreen(),
+                  ),
+                ),
+                child: Text(
+                  'Forgot password?',
+                  style: AppTextStyles(
+                    textColor: AppColors.brandPrimaryDark,
+                  ).formFieldLabel14,
+                  textAlign: .end,
+                ),
               ),
-              SizedBox(height: 220),
+              SizedBox(height: MediaQuery.of(context).size.height / 4.5),
               CustomButton(
                 onPressed: () {},
                 buttonText: 'Sign in',
-                buttonColor: AppColors.brandPrimary,
-                textStyle: AppTextStyles(
-                  textColor: AppColors.neutralWhite,
-                ).buttonLabel17,
-                buttonWidth: .infinity,
                 buttonIcon: AppAssets.arrowRightIcon,
               ),
-              Text(
-                'New here? Create an account',
-                style: AppTextStyles(
-                  textColor: AppColors.brandPrimaryDark,
-                ).labelStrong15,
-                textAlign: .center,
+              InkWell(
+                onTap: () => Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => SignUpScreen()),
+                ),
+                child: Text(
+                  'New here? Create an account',
+                  style: AppTextStyles(
+                    textColor: AppColors.brandPrimaryDark,
+                  ).labelStrong15,
+                  textAlign: .center,
+                ),
               ),
             ],
           ),

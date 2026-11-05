@@ -1,7 +1,7 @@
 import 'package:ai_lingo/core/constants/app_colors.dart';
 import 'package:ai_lingo/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RowFeatures extends StatelessWidget {
   const RowFeatures({
@@ -18,23 +18,23 @@ class RowFeatures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      spacing: 10,
+      spacing: 10.w,
       children: [
         Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(10.r),
           decoration: BoxDecoration(
             color: AppColors.surfaceBrandTint,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
           ),
-          child: SvgPicture.asset(
+          child: Image.asset(
             featureIcon,
-            width: 22,
-            height: 22,
+            width: 22.w,
+            height: 22.h,
             color: AppColors.brandPrimary,
           ),
         ),
         Column(
-          spacing: 5,
+          spacing: 5.h,
           crossAxisAlignment: .start,
           children: [
             Text(featureTitle, style: AppTextStyles().labelStrong15),

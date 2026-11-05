@@ -2,8 +2,10 @@ import 'package:ai_lingo/core/constants/app_assets.dart';
 import 'package:ai_lingo/core/constants/app_colors.dart';
 import 'package:ai_lingo/core/constants/app_text_styles.dart';
 import 'package:ai_lingo/core/widgets/custom_button.dart';
+import 'package:ai_lingo/features/auth/presentation/screens/login_screen.dart';
 import 'package:ai_lingo/features/onboarding/presentation/widgets/row_features.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -12,33 +14,36 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.surfaceBackground,
       appBar: AppBar(
-        backgroundColor: AppColors.surfaceBackground,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 12),
-          child: Image.asset(AppAssets.appLogo, width: 15, height: 15),
+          padding: EdgeInsets.only(left: 12.w),
+          child: Image.asset(AppAssets.appLogo, width: 15.w, height: 15.h),
         ),
         title: Text('AI-Lingo', style: AppTextStyles().headingPageTitle22),
         actions: [
           TextButton(
             onPressed: () {},
             child: Padding(
-              padding: const EdgeInsets.only(right: 12),
-              child: Text(
-                'Sign in',
-                style: AppTextStyles(
-                  textColor: AppColors.brandPrimaryDark,
-                ).labelStrong15,
+              padding: EdgeInsets.only(right: 12.r),
+              child: InkWell(
+                onTap: () => Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => LoginScreen())),
+                child: Text(
+                  'Sign in',
+                  style: AppTextStyles(
+                    textColor: AppColors.brandPrimaryDark,
+                  ).labelStrong15,
+                ),
               ),
             ),
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: EdgeInsets.all(12.r),
         child: Column(
-          spacing: 10,
+          spacing: 10.h,
           crossAxisAlignment: .stretch,
           children: [
             SvgPicture.asset(AppAssets.welcomeImage),
@@ -50,7 +55,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             Text(
               'Practice real conversations. Build real confidence.',
-              style: AppTextStyles().headingScreenTitle28,
+              style: AppTextStyles().headingScreenTitle26,
             ),
             Text(
               'Short chats built around your level, your interests and the words you already know.',
@@ -71,15 +76,10 @@ class WelcomeScreen extends StatelessWidget {
               featureTitle: 'Learn anywhere',
               featureScript: 'Saved words and lessons work offline',
             ),
-            Spacer(),
+            SizedBox(height: 10.h),
             CustomButton(
               onPressed: () {},
               buttonText: 'Get started',
-              buttonColor: AppColors.brandPrimary,
-              textStyle: AppTextStyles(
-                textColor: AppColors.neutralWhite,
-              ).buttonLabel17,
-              buttonWidth: .infinity,
               buttonIcon: AppAssets.arrowRightIcon,
             ),
             Text(
@@ -89,7 +89,6 @@ class WelcomeScreen extends StatelessWidget {
               ).bodySmall13,
               textAlign: .center,
             ),
-            SizedBox(height: 2),
           ],
         ),
       ),
