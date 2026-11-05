@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.royalBlue,
+      backgroundColor: AppColors.brandPrimary,
       body: Stack(
         children: [
           Positioned(top: -80, left: -80, child: CircleContainer(size: 250)),
@@ -27,7 +27,7 @@ class SplashScreen extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: AppColors.white,
+                    color: AppColors.neutralWhite,
                     borderRadius: BorderRadius.circular(48),
                   ),
                   child: Image.asset(
@@ -39,14 +39,14 @@ class SplashScreen extends StatelessWidget {
                 Text(
                   'AI-Lingo',
                   style: AppTextStyles(
-                    textColor: AppColors.white,
-                  ).semanticLink_40,
+                    textColor: AppColors.neutralWhite,
+                  ).splashAppName40,
                 ),
                 Text(
                   'Chat your way to better English.',
                   style: AppTextStyles(
-                    textColor: AppColors.white,
-                  ).semanticLink_16,
+                    textColor: AppColors.neutralWhite,
+                  ).splashTagline16,
                 ),
               ],
             ),

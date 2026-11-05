@@ -38,7 +38,11 @@ class CustomButton extends StatelessWidget {
         children: [
           Text(buttonText, style: textStyle),
           buttonIcon != null
-              ? SvgPicture.asset(buttonIcon!, width: 25, color: AppColors.white)
+              ? SvgPicture.asset(
+                  buttonIcon!,
+                  width: 25,
+                  color: AppColors.neutralWhite,
+                )
               : SizedBox.shrink(),
         ],
       ),

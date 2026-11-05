@@ -1,4 +1,3 @@
-import 'package:ai_lingo/core/constants/app_assets.dart';
 import 'package:ai_lingo/core/constants/app_colors.dart';
 import 'package:ai_lingo/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -24,24 +23,26 @@ class RowFeatures extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: AppColors.fog,
+            color: AppColors.surfaceBrandTint,
             borderRadius: BorderRadius.circular(15),
           ),
           child: SvgPicture.asset(
             featureIcon,
             width: 22,
             height: 22,
-            color: AppColors.royalBlue,
+            color: AppColors.brandPrimary,
           ),
         ),
         Column(
           spacing: 5,
           crossAxisAlignment: .start,
           children: [
-            Text(featureTitle, style: AppTextStyles().semanticLink_15),
+            Text(featureTitle, style: AppTextStyles().labelStrong15),
             Text(
               featureScript,
-              style: AppTextStyles(textColor: AppColors.comet).plusMedium_13,
+              style: AppTextStyles(
+                textColor: AppColors.textSecondary,
+              ).bodySmall13,
             ),
           ],
         ),

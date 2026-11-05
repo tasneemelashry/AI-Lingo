@@ -11,7 +11,10 @@ class CircleContainer extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      decoration: BoxDecoration(shape: .circle, color: AppColors.portage),
+      decoration: BoxDecoration(
+        shape: .circle,
+        color: AppColors.brandPrimarySoft,
+      ),
     );
   }
 }

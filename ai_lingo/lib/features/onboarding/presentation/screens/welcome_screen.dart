@@ -12,14 +12,14 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.whiteTitanWhite,
+      backgroundColor: AppColors.surfaceBackground,
       appBar: AppBar(
-        backgroundColor: AppColors.whiteTitanWhite,
+        backgroundColor: AppColors.surfaceBackground,
         leading: Padding(
           padding: const EdgeInsets.only(left: 12),
           child: Image.asset(AppAssets.appLogo, width: 15, height: 15),
         ),
-        title: Text('AI-Lingo', style: AppTextStyles().soraBold_22),
+        title: Text('AI-Lingo', style: AppTextStyles().headingPageTitle22),
         actions: [
           TextButton(
             onPressed: () {},
@@ -28,8 +28,8 @@ class WelcomeScreen extends StatelessWidget {
               child: Text(
                 'Sign in',
                 style: AppTextStyles(
-                  textColor: AppColors.governorBay,
-                ).semanticLink_15,
+                  textColor: AppColors.brandPrimaryDark,
+                ).labelStrong15,
               ),
             ),
           ),
@@ -45,16 +45,16 @@ class WelcomeScreen extends StatelessWidget {
             Text(
               'LEARN THROUGH REAL CONVERSATIONS',
               style: AppTextStyles(
-                textColor: AppColors.governorBay,
-              ).plusExtraBold_12,
+                textColor: AppColors.brandPrimaryDark,
+              ).labelStrong12,
             ),
             Text(
               'Practice real conversations. Build real confidence.',
-              style: AppTextStyles().semanticHeading1_28,
+              style: AppTextStyles().headingScreenTitle28,
             ),
             Text(
               'Short chats built around your level, your interests and the words you already know.',
-              style: AppTextStyles().plusMedium_15,
+              style: AppTextStyles().bodyDefault15,
             ),
             RowFeatures(
               featureIcon: AppAssets.practiceIcon,
@@ -75,16 +75,18 @@ class WelcomeScreen extends StatelessWidget {
             CustomButton(
               onPressed: () {},
               buttonText: 'Get started',
-              buttonColor: AppColors.royalBlue,
+              buttonColor: AppColors.brandPrimary,
               textStyle: AppTextStyles(
-                textColor: AppColors.white,
-              ).semanticLink_17,
+                textColor: AppColors.neutralWhite,
+              ).buttonLabel17,
               buttonWidth: .infinity,
               buttonIcon: AppAssets.arrowRightIcon,
             ),
             Text(
               'Short, focused sessions. Progress at your pace.',
-              style: AppTextStyles(textColor: AppColors.comet).plusMedium_13,
+              style: AppTextStyles(
+                textColor: AppColors.textSecondary,
+              ).bodySmall13,
               textAlign: .center,
             ),
             SizedBox(height: 2),
