@@ -1,10 +1,8 @@
 class AppAssets {
-  //App images
   static const String splashLogo = 'assets/images/splash_logo.png';
   static const String appLogo = 'assets/images/app_logo.png';
   static const String welcomeImage = 'assets/images/chat_preview.svg';
 
-  //Icons
   static const String arrowBackIcon = 'assets/icons/arrow_back.png';
   static const String bookIcon = 'assets/icons/words.png';
   static const String homeIcon = 'assets/icons/home.png';
@@ -19,8 +17,4 @@ class AppAssets {
   static const String checkIcon = 'assets/icons/check.png';
   static const String lockIcon = 'assets/icons/lock.png';
   static const String closeIcon = 'assets/icons/close.png';
-  
-  // Font family
-  static const String plus = 'PlusJakartaSans';
-  static const String sora = 'sora';
 }

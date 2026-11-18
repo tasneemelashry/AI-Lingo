@@ -1,12 +1,13 @@
 import 'package:ai_lingo/core/constants/app_assets.dart';
-import 'package:ai_lingo/core/constants/app_colors.dart';
-import 'package:ai_lingo/core/constants/app_text_styles.dart';
+import 'package:ai_lingo/core/theme/app_colors.dart';
+import 'package:ai_lingo/core/theme/app_text_styles.dart';
 import 'package:ai_lingo/core/widgets/custom_button.dart';
-import 'package:ai_lingo/features/auth/presentation/screens/login_screen.dart';
-import 'package:ai_lingo/features/onboarding/presentation/widgets/row_features.dart';
+import 'package:ai_lingo/core/routing/routes.dart';
+import 'package:ai_lingo/features/onboarding/widgets/row_features.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -19,21 +20,16 @@ class WelcomeScreen extends StatelessWidget {
           padding: EdgeInsets.only(left: 12.w),
           child: Image.asset(AppAssets.appLogo, width: 15.w, height: 15.h),
         ),
-        title: Text('AI-Lingo', style: AppTextStyles().headingPageTitle22),
+        title: Text('AI-Lingo', style: AppTextStyles.headingPageTitle22),
         actions: [
-          TextButton(
-            onPressed: () {},
-            child: Padding(
-              padding: EdgeInsets.only(right: 12.r),
-              child: InkWell(
-                onTap: () => Navigator.of(
-                  context,
-                ).push(MaterialPageRoute(builder: (context) => LoginScreen())),
-                child: Text(
-                  'Sign in',
-                  style: AppTextStyles(
-                    textColor: AppColors.brandPrimaryDark,
-                  ).labelStrong15,
+          Padding(
+            padding: EdgeInsets.only(right: 12.r),
+            child: TextButton(
+              onPressed: () => context.push(Routes.login),
+              child: Text(
+                'Sign in',
+                style: AppTextStyles.labelStrong15.copyWith(
+                  color: AppColors.brandPrimaryDark,
                 ),
               ),
             ),
@@ -49,17 +45,15 @@ class WelcomeScreen extends StatelessWidget {
             SvgPicture.asset(AppAssets.welcomeImage),
             Text(
               'LEARN THROUGH REAL CONVERSATIONS',
-              style: AppTextStyles(
-                textColor: AppColors.brandPrimaryDark,
-              ).labelStrong12,
+              style: AppTextStyles.labelStrong12.copyWith(color: AppColors.brandPrimaryDark),
             ),
             Text(
               'Practice real conversations. Build real confidence.',
-              style: AppTextStyles().headingScreenTitle26,
+              style: AppTextStyles.headingScreenTitle26,
             ),
             Text(
               'Short chats built around your level, your interests and the words you already know.',
-              style: AppTextStyles().bodyDefault15,
+              style: AppTextStyles.bodyDefault15,
             ),
             RowFeatures(
               featureIcon: AppAssets.practiceIcon,
@@ -78,15 +72,13 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             CustomButton(
-              onPressed: () {},
+              onPressed: () => context.go(Routes.signUp),
               buttonText: 'Get started',
               buttonIcon: AppAssets.arrowRightIcon,
             ),
             Text(
               'Short, focused sessions. Progress at your pace.',
-              style: AppTextStyles(
-                textColor: AppColors.textSecondary,
-              ).bodySmall13,
+              style: AppTextStyles.bodySmall13.copyWith(color: AppColors.textSecondary),
               textAlign: .center,
             ),
           ],

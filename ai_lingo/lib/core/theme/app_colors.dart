@@ -13,9 +13,6 @@ class AppColors {
   static const Color surfaceCardTint = Color(0xFFf6f4ff);
   static const Color badgeGoldBg = Color(0xFFfff4d2);
   static const Color borderDefault = Color(0xFFE6E3FA);
-  static const Color unusedPaleRose = Color(0xFFffe4ec);
-  static const Color unusedWarmGrey = Color(0xFFf5f4ef);
-  static const Color romantic = Color(0xFFffd98d);
   static const Color surfaceBackground = Color(0xFFF6F5FF);
   static const Color neutralWhite = Color(0xFFFFFFFF);
   static const Color textOnPrimaryMuted = Color(0xFFf1efff);
@@ -28,11 +25,10 @@ class AppColors {
   static const Color vocabNewAccent = Color(0xFFFF9F5A);
   static const Color vocabNewTextStrong = Color(0xFF4a2a10);
   static const Color badgeGoldText = Color(0xFF5c4000);
+  static const Color textPlaceholder = Color(0xFF757575);
   static const Color textHint = Color(0xff3f4a63);
-  static const Color unusedIronsideGray = Color(0xff6b6a68);
   static const Color textPrimary = Color(0xff1E1B4B);
   static const Color vocabNewText = Color(0xfFA24A06);
   static const Color badgeGold = Color(0xFFFFC857);
-  static const Color unusedRoseDark = Color(0xFFb0185a);
   static const Color statusDanger = Color(0xFFb3261e);
 }

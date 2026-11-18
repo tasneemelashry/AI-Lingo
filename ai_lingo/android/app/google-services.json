@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691088027033",
+    "project_id": "ai-lingo-2bf10",
+    "storage_bucket": "ai-lingo-2bf10.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691088027033:android:9ba24ffe1e8305b0a3b708",
+        "android_client_info": {
+          "package_name": "com.ailingo.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb7wP3KqkrJTQ6IauhIX67kxMkR7-o8LM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

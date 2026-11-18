@@ -1,12 +1,10 @@
 # AI-Lingo — App Development
 
-This branch is dedicated to developing the complete AI-Lingo Flutter application.
+Branch for the Flutter application. See [`ai_lingo/README.md`](ai_lingo/README.md) for the architecture and how to run it.
 
 ## Scope
-- Set up the complete Flutter project.
-- Develop the application's features and user interface.
-- Develop the AI component separately before integrating it into the application.
-- Integrate and test the AI component with the Flutter application.
+- Flutter project setup, UI and features.
+- AI component developed separately, then integrated and tested with the app.
 
 ## Status
-In progress — application development has not started yet.
+In progress — splash, welcome and auth screens are built; setup, home, chat, vocabulary and progress screens are next.
