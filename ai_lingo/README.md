@@ -2,14 +2,6 @@
 
 Contextual English learning through AI-generated conversations.
 
-## Run
-
-```bash
-flutter pub get
-flutterfire configure     # once: creates lib/firebase_options.dart (see "Firebase")
-flutter run
-```
-
 ## Project structure
 
 Each feature keeps its own files together, so you can find everything about
