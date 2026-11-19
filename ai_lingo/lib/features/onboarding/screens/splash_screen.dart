@@ -8,7 +8,6 @@ import 'package:ai_lingo/core/constants/app_assets.dart';
 import 'package:ai_lingo/features/auth/cubit/auth_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -35,7 +34,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void goNext() {
     if (!mounted) return;
     final signedIn = context.read<AuthCubit>().currentUser != null;
-    context.go(signedIn ? Routes.home : Routes.welcome);
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      signedIn ? Routes.home : Routes.welcome,
+      (route) => false,
+    );
   }
 
   @override

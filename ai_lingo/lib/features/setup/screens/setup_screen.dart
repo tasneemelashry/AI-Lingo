@@ -3,7 +3,6 @@ import 'package:ai_lingo/core/theme/app_text_styles.dart';
 import 'package:ai_lingo/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class SetupScreen extends StatelessWidget {
   const SetupScreen({super.key});
@@ -30,7 +29,8 @@ class SetupScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               CustomButton(
-                onPressed: () => context.go(Routes.home),
+                onPressed: () => Navigator.of(context)
+                    .pushNamedAndRemoveUntil(Routes.home, (route) => false),
                 buttonText: 'Continue',
               ),
             ],

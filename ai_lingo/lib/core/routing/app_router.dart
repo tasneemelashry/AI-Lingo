@@ -9,92 +9,92 @@ import 'package:ai_lingo/features/home/screens/home_screen.dart';
 import 'package:ai_lingo/features/onboarding/screens/splash_screen.dart';
 import 'package:ai_lingo/features/onboarding/screens/welcome_screen.dart';
 import 'package:ai_lingo/features/setup/screens/setup_screen.dart';
-import 'package:flutter/widgets.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter/material.dart';
 
 class AppRouter {
-  AppRouter(this.authRepository)
-    : refresh = StreamListenable(authRepository.authStateChanges) {
-    router = GoRouter(
-      initialLocation: Routes.splash,
-      refreshListenable: refresh,
-      redirect: redirect,
-      routes: [
-        GoRoute(
-          path: Routes.splash,
-          builder: (context, state) => const SplashScreen(),
-        ),
-        GoRoute(
-          path: Routes.welcome,
-          builder: (context, state) => const WelcomeScreen(),
-        ),
-        GoRoute(
-          path: Routes.login,
-          builder: (context, state) => const LoginScreen(),
-        ),
-        GoRoute(
-          path: Routes.signUp,
-          builder: (context, state) => const SignUpScreen(),
-        ),
-        GoRoute(
-          path: Routes.forgotPassword,
-          builder: (context, state) => const ForgotPasswordScreen(),
-        ),
-        GoRoute(
-          path: Routes.checkEmail,
-          builder: (context, state) {
-            final extra = state.extra;
-            return CheckEmailScreen(
-              args: extra is CheckEmailArgs
-                  ? extra
-                  : CheckEmailArgs(
-                      email: authRepository.currentUser?.email ?? '',
-                      type: CheckEmailType.verification,
-                      next: Routes.home,
-                    ),
-            );
-          },
-        ),
-        GoRoute(
-          path: Routes.setup,
-          builder: (context, state) => const SetupScreen(),
-        ),
-        GoRoute(
-          path: Routes.home,
-          builder: (context, state) => const HomeScreen(),
-        ),
-      ],
-    );
+  AppRouter(this.authRepository) {
+    subscription = authRepository.authStateChanges.listen((_) => refresh());
   }
 
   final AuthRepository authRepository;
-  final StreamListenable refresh;
-  late final GoRouter router;
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  final RouteTracker tracker = RouteTracker();
+  late final StreamSubscription<Object?> subscription;
 
-  String? redirect(BuildContext context, GoRouterState state) {
-    if (!Routes.protected.contains(state.matchedLocation)) return null;
+  List<Route<dynamic>> generateInitialRoutes(String name) => [
+    generateRoute(RouteSettings(name: name)),
+  ];
+
+  Route<dynamic> generateRoute(RouteSettings settings) {
+    final target = redirect(settings.name);
+    final resolved = target == null
+        ? settings
+        : RouteSettings(name: target);
+    return MaterialPageRoute<void>(
+      settings: resolved,
+      builder: (context) => buildScreen(resolved),
+    );
+  }
+
+  Widget buildScreen(RouteSettings settings) {
+    return switch (settings.name) {
+      Routes.splash => const SplashScreen(),
+      Routes.welcome => const WelcomeScreen(),
+      Routes.login => const LoginScreen(),
+      Routes.signUp => const SignUpScreen(),
+      Routes.forgotPassword => const ForgotPasswordScreen(),
+      Routes.checkEmail => CheckEmailScreen(
+        args: settings.arguments is CheckEmailArgs
+            ? settings.arguments as CheckEmailArgs
+            : CheckEmailArgs(
+                email: authRepository.currentUser?.email ?? '',
+                type: CheckEmailType.verification,
+                next: Routes.home,
+              ),
+      ),
+      Routes.setup => const SetupScreen(),
+      Routes.home => const HomeScreen(),
+      _ => const WelcomeScreen(),
+    };
+  }
+
+  String? redirect(String? name) {
+    if (!Routes.protected.contains(name)) return null;
     final user = authRepository.currentUser;
     if (user == null) return Routes.welcome;
     if (!user.emailVerified) return Routes.checkEmail;
     return null;
   }
 
+  void refresh() {
+    final target = redirect(tracker.current);
+    if (target == null) return;
+    navigatorKey.currentState?.pushNamedAndRemoveUntil(
+      target,
+      (route) => false,
+    );
+  }
+
   void dispose() {
-    router.dispose();
-    refresh.dispose();
+    subscription.cancel();
   }
 }
 
-class StreamListenable extends ChangeNotifier {
-  StreamListenable(Stream<Object?> stream) {
-    subscription = stream.listen((_) => notifyListeners());
-  }
-
-  late final StreamSubscription<Object?> subscription;
+class RouteTracker extends NavigatorObserver {
+  String? current;
 
   @override
-  void dispose() {
-    subscription.cancel();
-    super.dispose();
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    current = route.settings.name;
+  }
+
+  @override
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    current = previousRoute?.settings.name;
+  }
+
+  @override
+  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
+    current = newRoute?.settings.name;
   }
 }

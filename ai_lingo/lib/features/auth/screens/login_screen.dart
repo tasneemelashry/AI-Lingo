@@ -13,7 +13,6 @@ import 'package:ai_lingo/features/auth/screens/check_email_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -49,11 +48,15 @@ class _LoginScreenState extends State<LoginScreen> {
       listener: (context, state) {
         if (state is Authenticated) {
           if (state.user.emailVerified) {
-            context.go(Routes.home);
+            Navigator.of(context).pushNamedAndRemoveUntil(
+              Routes.home,
+              (route) => false,
+            );
           } else {
-            context.go(
+            Navigator.of(context).pushNamedAndRemoveUntil(
               Routes.checkEmail,
-              extra: CheckEmailArgs(
+              (route) => false,
+              arguments: CheckEmailArgs(
                 email: state.user.email ?? '',
                 type: CheckEmailType.verification,
                 next: Routes.home,
@@ -117,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     enabled: !isLoading,
                   ),
                   InkWell(
-                    onTap: () => context.push(Routes.forgotPassword),
+                    onTap: () => Navigator.of(context).pushNamed(Routes.forgotPassword),
                     child: Text(
                       'Forgot password?',
                       style: AppTextStyles.formFieldLabel14.copyWith(
@@ -135,7 +138,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     buttonIcon: AppAssets.arrowRightIcon,
                   ),
                   InkWell(
-                    onTap: () => context.go(Routes.signUp),
+                    onTap: () => Navigator.of(context)
+                        .pushNamedAndRemoveUntil(Routes.signUp, (route) => false),
                     child: Text(
                       'New here? Create an account',
                       style: AppTextStyles.labelStrong15.copyWith(

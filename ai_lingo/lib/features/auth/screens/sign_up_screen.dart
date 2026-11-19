@@ -13,7 +13,6 @@ import 'package:ai_lingo/features/auth/screens/check_email_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -52,9 +51,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is Authenticated) {
-          context.go(
+          Navigator.of(context).pushNamedAndRemoveUntil(
             Routes.checkEmail,
-            extra: CheckEmailArgs(
+            (route) => false,
+            arguments: CheckEmailArgs(
               email: state.user.email ?? '',
               type: CheckEmailType.verification,
               next: Routes.setup,
@@ -154,7 +154,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     buttonIcon: AppAssets.arrowRightIcon,
                   ),
                   InkWell(
-                    onTap: () => context.go(Routes.login),
+                    onTap: () => Navigator.of(context)
+                        .pushNamedAndRemoveUntil(Routes.login, (route) => false),
                     child: Text(
                       'Already have an account? Sign in',
                       style: AppTextStyles.labelStrong15.copyWith(

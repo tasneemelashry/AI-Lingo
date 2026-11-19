@@ -9,7 +9,6 @@ import 'package:ai_lingo/features/auth/cubit/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 enum CheckEmailType { verification, passwordReset }
 
@@ -79,7 +78,10 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
     final verified = await cubit.checkEmailVerified();
     if (!mounted) return;
     if (verified) {
-      context.go(widget.args.next);
+      Navigator.of(context).pushNamedAndRemoveUntil(
+        widget.args.next,
+        (route) => false,
+      );
     } else if (cubit.state is Authenticated) {
       showErrorSnackBar(
         context,
@@ -93,7 +95,7 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
       await context.read<AuthCubit>().signOut();
       if (!mounted) return;
     }
-    context.go(Routes.login);
+    Navigator.of(context).pushNamedAndRemoveUntil(Routes.login, (route) => false);
   }
 
   @override

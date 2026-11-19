@@ -13,7 +13,6 @@ import 'package:ai_lingo/features/auth/screens/check_email_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -43,9 +42,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is ResetLinkSent) {
-          context.pushReplacement(
+          Navigator.of(context).pushReplacementNamed(
             Routes.checkEmail,
-            extra: CheckEmailArgs(
+            arguments: CheckEmailArgs(
               email: state.email,
               type: CheckEmailType.passwordReset,
               next: Routes.login,
@@ -62,8 +61,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           appBar: AppBar(
             leading: IconButton(
               tooltip: 'Back',
-              onPressed: () =>
-                  context.canPop() ? context.pop() : context.go(Routes.login),
+              onPressed: () {
+                final navigator = Navigator.of(context);
+                if (navigator.canPop()) {
+                  navigator.pop();
+                } else {
+                  navigator.pushNamedAndRemoveUntil(Routes.login, (route) => false);
+                }
+              },
               icon: const Icon(Icons.arrow_back_ios_new),
             ),
           ),
@@ -125,7 +130,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     buttonIcon: AppAssets.arrowRightIcon,
                   ),
                   InkWell(
-                    onTap: () => context.go(Routes.login),
+                    onTap: () => Navigator.of(context)
+                        .pushNamedAndRemoveUntil(Routes.login, (route) => false),
                     child: Text(
                       'Back to sign in',
                       style: AppTextStyles.labelStrong15.copyWith(

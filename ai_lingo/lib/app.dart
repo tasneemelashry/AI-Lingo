@@ -1,4 +1,5 @@
 import 'package:ai_lingo/core/routing/app_router.dart';
+import 'package:ai_lingo/core/routing/routes.dart';
 import 'package:ai_lingo/core/theme/app_theme.dart';
 import 'package:ai_lingo/features/auth/data/auth_repository.dart';
 import 'package:ai_lingo/features/auth/cubit/auth_cubit.dart';
@@ -32,11 +33,15 @@ class _AppState extends State<App> {
         designSize: const Size(390, 844),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: (context, child) => MaterialApp.router(
+        builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'AI-Lingo',
           theme: AppTheme.light,
-          routerConfig: appRouter.router,
+          navigatorKey: appRouter.navigatorKey,
+          navigatorObservers: [appRouter.tracker],
+          initialRoute: Routes.splash,
+          onGenerateInitialRoutes: appRouter.generateInitialRoutes,
+          onGenerateRoute: appRouter.generateRoute,
         ),
       ),
     );

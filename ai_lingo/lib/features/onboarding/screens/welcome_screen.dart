@@ -7,7 +7,6 @@ import 'package:ai_lingo/features/onboarding/widgets/row_features.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -25,7 +24,7 @@ class WelcomeScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 12.r),
             child: TextButton(
-              onPressed: () => context.push(Routes.login),
+              onPressed: () => Navigator.of(context).pushNamed(Routes.login),
               child: Text(
                 'Sign in',
                 style: AppTextStyles.labelStrong15.copyWith(
@@ -72,7 +71,8 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             CustomButton(
-              onPressed: () => context.go(Routes.signUp),
+              onPressed: () => Navigator.of(context)
+                  .pushNamedAndRemoveUntil(Routes.signUp, (route) => false),
               buttonText: 'Get started',
               buttonIcon: AppAssets.arrowRightIcon,
             ),
